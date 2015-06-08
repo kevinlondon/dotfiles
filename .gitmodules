@@ -1,0 +1,3 @@
+[submodule "dotvim"]
+	path = dotvim
+	url = https://kevinlondon@github.com/kevinlondon/dotvim
