@@ -1,0 +1,7 @@
+[user]
+	email = kevinlondon@gmail.com
+	name = Kevin London
+[push]
+	default = simple
+[core]
+	editor = /usr/local/bin/nvim

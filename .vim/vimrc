@@ -1,35 +1,37 @@
-" VUNDLE Install
+" Neovim config
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plug 'gmarik/Vundle.vim'
 
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Bundle 'alfredodeza/pytest.vim'
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'benekastah/neomake'
+Plug 'janko-m/vim-test'
+Plug 'kien/ctrlp.vim'
+Plug 'altercation/vim-colors-solarized'
+
+call plug#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
 " Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+" :PlugList          - list configured plugins
+" :PlugInstall(!)    - install (update) plugins
+" :PlugSearch(!) foo - search (or refresh cache first) for foo
+" :PlugClean(!)      - confirm (or auto-approve) removal of unused plugins
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
@@ -37,8 +39,6 @@ filetype plugin indent on    " required
 " Begin Normal vimrc
 filetype on
 filetype off
-call pathogen#infect()
-call pathogen#helptags()
 syntax on
 filetype plugin indent on
 
@@ -147,7 +147,7 @@ fun! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 
-autocmd FileType c,cpp,java,php,ruby,python,javascript autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType * autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 " Enable menu and pydoc preview
 set completeopt=menuone,longest,preview
@@ -175,6 +175,21 @@ let g:vim_markdown_folding_disabled=1
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
 " Pytest
-nmap <silent><Leader>f <Esc>:w\|:Pytest file verbose<CR>
-nmap <silent><Leader>c <Esc>:w\|:Pytest class verbose<CR>
-nmap <silent><Leader>m <Esc>:w\|:Pytest method verbose<CR>
+" nmap <silent><Leader>f <Esc>:w\|:Pytest file verbose<CR>
+" nmap <silent><Leader>c <Esc>:w\|:Pytest class verbose<CR>
+" nmap <silent><Leader>m <Esc>:w\|:Pytest method verbose<CR>
+
+" Neomake (linter)
+autocmd! BufWritePost * Neomake
+
+"nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+let test#strategy = 'neovim'
+let test#python#runner = 'pytest'
+
+set background=dark
+colorscheme molokai
