@@ -192,4 +192,6 @@ let test#strategy = 'neovim'
 let test#python#runner = 'pytest'
 
 set background=dark
+let g:rehash256 = 1
+let g:molokai_original = 1
 colorscheme molokai

@@ -4,3 +4,4 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 export PATH="/usr/local/bin:$PATH"
 alias vim=nvim
+setenv TERM xterm-256color
