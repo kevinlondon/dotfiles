@@ -15,3 +15,6 @@ export NVM_DIR=~/.nvm
 . $(brew --prefix nvm)/nvm.sh
 
 # Customize to your needs...
+# Start SSH Agent
+eval `ssh-agent -s`
+eval $(thefuck --alias)

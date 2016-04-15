@@ -21,6 +21,8 @@ Plug 'benekastah/neomake'
 Plug 'janko-m/vim-test'
 Plug 'kien/ctrlp.vim'
 Plug 'altercation/vim-colors-solarized'
+Plug 'scrooloose/nerdtree'
+Plug 'Shougo/deoplete.nvim'
 
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -83,16 +85,8 @@ vnoremap <tab> %
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-set colorcolumn=80,100
+set colorcolumn=80,109
 
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
@@ -109,7 +103,6 @@ let g:pymode_lint_write = 0
 
 set statusline+=%F
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_mode = "passive"
@@ -195,3 +188,8 @@ set background=dark
 let g:rehash256 = 1
 let g:molokai_original = 1
 colorscheme molokai
+
+" Autocomplete
+let g:deoplete#enable_at_startup = 1
+
+set mouse-=a

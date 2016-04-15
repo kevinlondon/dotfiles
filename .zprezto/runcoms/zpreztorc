@@ -162,6 +162,3 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 # Integrate with iTerm2.
 # zstyle ':prezto:module:tmux:iterm' integrate 'yes'
 
-# Start SSH Agent
-eval `ssh-agent -s`
-ssh-add ~/.ssh/chownow_rsa
