@@ -10,6 +10,12 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
+
+export PATH="/usr/local/bin:$PATH"
+alias vim=nvim
 export EDITOR='nvim'
 export NVM_DIR=~/.nvm
 . $(brew --prefix nvm)/nvm.sh
@@ -18,3 +24,13 @@ export NVM_DIR=~/.nvm
 # Start SSH Agent
 eval `ssh-agent -s`
 eval $(thefuck --alias)
+
+export ANDROID_HOME=/usr/local/opt/android-sdk
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+export PATH="~/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+
+ssh-add -A

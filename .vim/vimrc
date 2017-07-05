@@ -22,7 +22,9 @@ Plug 'janko-m/vim-test'
 Plug 'kien/ctrlp.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
-Plug 'Shougo/deoplete.nvim'
+Plug 'hashivim/vim-terraform'
+Plug 'pearofducks/ansible-vim'
+Plug 'vimwiki/vimwiki'
 
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -44,13 +46,9 @@ filetype off
 syntax on
 filetype plugin indent on
 
-set nocompatible
 set modelines=0
 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
+set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 
 set encoding=utf-8
 set scrolloff=3
@@ -150,7 +148,7 @@ set completeopt=menuone,longest,preview
 set number
 
 " Tweaks for CtrlP Plugin
-let g:ctrlp_custom_ignore = 'DS_Store\|build\|dist\|git\|.*\.pyc\|.+pyc\|node_modules\|bower_components\|tmp'
+let g:ctrlp_custom_ignore = 'DS_Store\|^build\|^dist\|git\|.*\.pyc\|\.+pyc\|node_modules\|bower_components\|tmp'
 
 map <C-n> :NERDTreeToggle<CR>
 
@@ -176,11 +174,11 @@ au BufRead,BufNewFile *.md setlocal textwidth=80
 autocmd! BufWritePost * Neomake
 
 "nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> <leader>m :TestNearest<CR>
-nmap <silent> <leader>f :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
-nmap <silent> <leader>g :TestVisit<CR>
+nmap <silent> <leader>m :w\|:TestNearest<CR>
+nmap <silent> <leader>f :w\|:TestFile<CR>
+nmap <silent> <leader>a :w\|:TestSuite<CR>
+nmap <silent> <leader>l :w\|:TestLast<CR>
+nmap <silent> <leader>g :w\|:TestVisit<CR>
 let test#strategy = 'neovim'
 let test#python#runner = 'pytest'
 

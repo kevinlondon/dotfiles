@@ -5,3 +5,11 @@
 	default = simple
 [core]
 	editor = /usr/local/bin/nvim
+[alias]
+    prune = fetch --prune
+    undo = reset --soft HEAD^
+    stash-all = stash save --include-untracked
+    glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+[merge]
+    ff = only
+    conflictstyle = diff3
