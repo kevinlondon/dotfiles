@@ -3,18 +3,14 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-call plug#begin('~/.vim/plugged')
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plug 'gmarik/Vundle.vim'
+" set the runtime path to include Plugged and initialize
+call plug#begin('~/.local/share/nvim/plugged')
 
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 
+Plug 'tpope/vim-sensible'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'benekastah/neomake'
@@ -25,9 +21,11 @@ Plug 'scrooloose/nerdtree'
 Plug 'hashivim/vim-terraform'
 Plug 'pearofducks/ansible-vim'
 Plug 'vimwiki/vimwiki'
+Plug 'tomasr/molokai'
 
-call plug#end()            " required
+call plug#end()              " required
 filetype plugin indent on    " required
+
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
