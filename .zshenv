@@ -1,1 +1,0 @@
-/Users/kevinlondon/.zprezto/runcoms/zshenv
